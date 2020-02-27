@@ -1,6 +1,4 @@
 <ol>
-  <app-item [pers] = "listePersonne[0]" ></app-item>
-  <app-item [pers] = "listePersonne[1]"></app-item>
-  <app-item [pers] = "listePersonne[2]"></app-item>
+  <app-item *ngFor="let p of listePersonne" [pers] = "p" (sendP)="EnvoyerPers($event)"></app-item>
   
   </ol>

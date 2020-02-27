@@ -1,0 +1,17 @@
+.cl {
+    width: 200px;
+    height: 200px;
+}
+
+.c1 {
+    background-color: blueviolet;
+    color : white;
+}
+.c2 {
+    background-color: grey;
+    color : green;
+}
+.c3 {
+    background-color: pink;
+    color : black;
+}

@@ -5,13 +5,13 @@
         <img src="../assets/rotating_card_thumb2.png">
       </div>
       <div class="user">
-        <img class="img-circle" src="../assets/nidhal.jpg">
+        <img class="img-circle" src="../assets/{{pers.path | noImage}}">
       </div>
       <div class="content">
         <div class="main">
-          <h3 class="name"> aaaaa</h3>
-          <p class="profession">aaaaa ans</p>
-          <p class="text-center">aaaaa</p>
+          <h3 class="name"> {{pers.prenom}} {{pers.nom}}</h3>
+          <p class="profession">{{pers.age}} ans</p>
+          <p class="text-center">{{pers.metier}}</p>
         </div>
         <div class="footer">
           <i class="fa fa-mail-forward"></i> Auto Rotation

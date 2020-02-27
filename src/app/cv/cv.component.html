@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col-md-5">
-      <app-liste [listePersonne]="listePersonne" >
+      <app-liste [listePersonne]="listePersonne" (sendPr)="ReceivedPers($event)">
       </app-liste>
     </div>
     <div class="col-md-7">
-      <app-detail></app-detail>
+      <app-detail *ngIf="selectedPers"  [pers]="selectedPers" ></app-detail>
     </div>
   </div>
 </div>

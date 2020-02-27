@@ -1,0 +1,26 @@
+<div [ngStyle]="{
+  backgroundColor: bgColor,
+  color : cl,
+  fontSize : size,
+  fontFamily : font
+}">
+
+  Mastere isie
+
+</div>
+
+Background color : <br>
+<input type="text" class="form-control" [(ngModel)]="bgColor" >
+
+Text Color : <br>
+<input type="text" class="form-control" [(ngModel)]="cl">
+
+Text Size : <br>
+<input #sz type="number" class="form-control" (change)="changeSize(sz.value)">
+
+Font Family
+<select [(ngModel)]="font">
+  <option value="Impact">Impact</option>
+  <option value="Garamond">Garamond</option>
+  <option value="Arial">Comis Sans MS</option>
+</select>

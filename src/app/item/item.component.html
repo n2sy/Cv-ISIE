@@ -1,3 +1,3 @@
-<li class="list-group-item">
-  <img src="../../assets/{{pers.path}}" > {{ pers.prenom }} {{ pers.nom }}
+<li class="list-group-item" (click)="sendPers()" >
+  <img src="../../assets/{{pers.path | noImage}}" > {{ pers.prenom | titlecase }} {{ pers.nom | uppercase}}
 </li>

@@ -1,4 +1,4 @@
-<div [style.backgroundColor]="colorChild" >
+<div [style.backgroundColor]="colorChild">
 
   Div de l'Enfant
 
@@ -6,6 +6,23 @@
 
 <button class="div div-danger" (click)="Send()">
 
-Send Msg to Parent
+  Send Msg to Parent
 
+</button>
+
+<div appCustomDir class="cl">
+  Test de directive perso
+</div>
+
+<div [ngClass]="{
+  c1: class1,
+  c2: class2,
+  c3: class3}
+  ">
+
+  Test de NgClass
+</div>
+
+<button class="btn btn-primary" (click) = "changeStyle()">
+  Change Style
 </button>
