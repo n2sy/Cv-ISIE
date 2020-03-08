@@ -20,5 +20,9 @@ export class CvComponent implements OnInit {
   ReceivedPers(p) {
     this.selectedPers = p;
   }
+  addPerson() {
+    let p = new Personne(4, "flen", "ben flen", 30, "Etudiant");
+    this.cvservice.addPersonne(p);
+  }
 
 }

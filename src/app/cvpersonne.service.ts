@@ -15,4 +15,16 @@ export class CvpersonneService {
   getListePersonne() {
     return this.listePersonne;
   }
+
+  addPersonne(p) {
+    this.listePersonne.push(p);
+    console.log(this.listePersonne);
+  }
+
+  getPersonneById(id) {
+    return this.listePersonne.find((p)=>(p.id==id));
+  }
+
+
+
 }

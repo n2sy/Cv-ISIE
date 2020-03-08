@@ -12,7 +12,13 @@ import { ItemComponent } from './item/item.component';
 import { ListeComponent } from './liste/liste.component';
 import { MiniWordComponent } from './mini-word/mini-word.component';
 import { CustomDirDirective } from './custom-dir.directive';
-import { NoImagePipe } from './no-image.pipe'
+import { NoImagePipe } from './no-image.pipe';
+import { RecruterComponent } from './recruter/recruter.component';
+import { ROUTING } from './app.routing';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
+import { InfosComponent } from './infos/infos.component';
+
 
 @NgModule({
   declarations: [
@@ -25,11 +31,16 @@ import { NoImagePipe } from './no-image.pipe'
     ListeComponent,
     MiniWordComponent,
     CustomDirDirective,
-    NoImagePipe
+    NoImagePipe,
+    RecruterComponent,
+    NavbarComponent,
+    HomeComponent,
+    InfosComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule
+  BrowserModule,
+    FormsModule,
+    ROUTING
   ],
   providers: [],
   bootstrap: [AppComponent]
