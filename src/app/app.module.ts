@@ -18,6 +18,13 @@ import { ROUTING } from './app.routing';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { InfosComponent } from './infos/infos.component';
+import { CvpersonneService } from './cvpersonne.service';
+import { LoginComponent } from './login/login.component';
+import { SpinnerLoadingComponent } from './spinner-loading/spinner-loading.component';
+import { AlertComponent } from './alert/alert.component';
+import { AddComponent } from './add/add.component';
+import { UpdateComponent } from './update/update.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -35,10 +42,16 @@ import { InfosComponent } from './infos/infos.component';
     RecruterComponent,
     NavbarComponent,
     HomeComponent,
-    InfosComponent
+    InfosComponent,
+    LoginComponent,
+    SpinnerLoadingComponent,
+    AlertComponent,
+    AddComponent,
+    UpdateComponent,
+    NotFoundComponent
   ],
   imports: [
-  BrowserModule,
+BrowserModule,
     FormsModule,
     ROUTING
   ],

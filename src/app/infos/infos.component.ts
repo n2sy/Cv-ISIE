@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Personne } from '../model/personne';
 import { CvpersonneService } from '../cvpersonne.service';
 
@@ -11,6 +11,7 @@ import { CvpersonneService } from '../cvpersonne.service';
 export class InfosComponent implements OnInit {
   pers : Personne;
   constructor(private activatedRoute : ActivatedRoute,
+    private router : Router,
     private cvpersonne: CvpersonneService) { }
 
   ngOnInit() {
@@ -19,6 +20,15 @@ export class InfosComponent implements OnInit {
         this.pers = this.cvpersonne.getPersonneById(param['id'])
       }
     )
+  }
+
+  goToUpdate() {
+    this.router.navigate(['cv/edit', this.pers.id]);
+  }
+
+  deletePersonne() {
+    this.cvpersonne.deletePersonne(this.pers);
+    this.router.navigate(['cv'])
   }
 
 }

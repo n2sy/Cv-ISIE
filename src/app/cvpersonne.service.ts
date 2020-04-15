@@ -17,12 +17,23 @@ export class CvpersonneService {
   }
 
   addPersonne(p) {
+    p.id = this.listePersonne.length + 1;
     this.listePersonne.push(p);
     console.log(this.listePersonne);
   }
 
   getPersonneById(id) {
     return this.listePersonne.find((p)=>(p.id==id));
+  }
+
+  updatePersonne(p) {
+    let i = this.listePersonne.indexOf(p);
+    this.listePersonne[i] = p;
+  }
+
+  deletePersonne(p) {
+    let i = this.listePersonne.indexOf(p);
+    this.listePersonne.splice(i, 1);
   }
 
 
