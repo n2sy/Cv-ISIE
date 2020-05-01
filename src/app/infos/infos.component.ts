@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Personne } from '../model/personne';
 import { CvpersonneService } from '../cvpersonne.service';
 
@@ -16,8 +16,19 @@ export class InfosComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(
-      (param) => {
-        this.pers = this.cvpersonne.getPersonneById(param['id'])
+      (p : Params) => {
+        this.cvpersonne.getPersonneByIdAPI(p['id']).subscribe(
+          (perso : Personne) => {
+            this.pers = perso;
+          },
+          (error) => {
+            console.log('error with getPersonne')
+          }
+        )
+      },
+      (error) => {
+        console.log('Absence de Route Parameters');
+        
       }
     )
   }
@@ -27,8 +38,18 @@ export class InfosComponent implements OnInit {
   }
 
   deletePersonne() {
-    this.cvpersonne.deletePersonne(this.pers);
-    this.router.navigate(['cv'])
+    //this.cvpersonne.deletePersonne(this.pers);
+    if(confirm('Voulez-vous vraiment supprimer cette personne ?')) {
+      this.cvpersonne.deletePersonneAPI(this.pers.id).subscribe(
+        (response) => {
+          this.router.navigate(['cv'])
+        },
+        (error) => {
+          console.log('Error with Delete request');
+        }
+      )
+    }
+   
   }
 
 }

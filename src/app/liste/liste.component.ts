@@ -8,13 +8,12 @@ import { CvpersonneService } from '../cvpersonne.service';
   styleUrls: ['./liste.component.css'],
 })
 export class ListeComponent implements OnInit {
-  listePersonne : Personne[];
+  @Input() listePersonne : Personne[];
   @Output() sendPr = new EventEmitter();
   constructor(private cvservice : CvpersonneService) { }
 
   ngOnInit() {
-    this.listePersonne = this.cvservice.getListePersonne();
-    console.log(this.listePersonne);
+  
   }
 
   EnvoyerPers(p) {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 import { CvpersonneService } from '../cvpersonne.service';
 import { Personne } from '../model/personne';
 
@@ -16,15 +16,35 @@ export class UpdateComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(
-      (params) => {
-        this.pers = this.cvPersonne.getPersonneById(params['id'])
+      (p : Params) => {
+        this.cvPersonne.getPersonneByIdAPI(p['id']).subscribe(
+          (perso : Personne) => {
+            this.pers = perso;
+          },
+          (error) => {
+            console.log('error with getPersonne')
+          }
+        )
+      },
+      (error) => {
+        console.log('Absence de Route Parameters');
+        
       }
-    )
+    );
   }
 
-  updatePersonne(p) {
-    this.cvPersonne.updatePersonne(p);
-    this.router.navigate(['cv']);
+  updatePersonne() {
+    //this.cvPersonne.updatePersonne(p);
+    //console.log(p);
+    this.cvPersonne.updatePersonneAPI(this.pers).subscribe(
+      (response) => {
+        this.router.navigate(['cv']);
+      },
+      (error) => {
+        console.log('Error with PUT request !');
+        
+      }
+    )
   }
 
 }

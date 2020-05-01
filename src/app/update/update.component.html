@@ -1,5 +1,5 @@
 <div class="container alert alert-info col-md-8">
-  <form #updateForm="ngForm" class="well form-horizontal">
+  <form class="well form-horizontal">
     <div class="profile-userpic">
       <img src="../../assets/{{pers.path}}" class="img-responsive" alt="">
     </div>
@@ -22,6 +22,6 @@
         <input [(ngModel)]="pers.metier" name="metier"  class="form-control" type="text"></div>
 
     </fieldset>
-    <button class="btn-success" (click)="updatePersonne(updateForm.value)">Valider</button>
+    <button class="btn-success" (click)="updatePersonne()">Valider</button>
   </form>
 </div>

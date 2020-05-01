@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-5">
       <!-- <button class="btn btn-danger" (click)="addPerson()">Create new person</button> -->
-      <app-liste (sendPr)="ReceivedPers($event)">
+      <app-liste [listePersonne]="listePersonne" (sendPr)="ReceivedPers($event)">
       </app-liste>
     </div>
     <div class="col-md-7">

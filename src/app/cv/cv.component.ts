@@ -14,7 +14,16 @@ export class CvComponent implements OnInit {
   constructor(private cvservice : CvpersonneService) { }
 
   ngOnInit() {
-    this.listePersonne = this.cvservice.getListePersonne();
+    //this.listePersonne = this.cvservice.getListePersonne();
+    this.cvservice.getListePersonneAPI().subscribe(
+      (data) => {
+        this.listePersonne = data;
+      },
+      (error) => {
+        console.log('Error with getListePersonne()');
+        
+      }
+    )
   }
 
   ReceivedPers(p) {

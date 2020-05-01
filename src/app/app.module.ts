@@ -1,9 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { CouleurComponent } from './couleur/couleur.component';
-
 import { FormsModule } from '@angular/forms';
 import { ChildComponent } from './child/child.component';
 import { CvComponent } from './cv/cv.component';
@@ -25,7 +23,8 @@ import { AlertComponent } from './alert/alert.component';
 import { AddComponent } from './add/add.component';
 import { UpdateComponent } from './update/update.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-
+import { HttpComponent } from './http/http.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -48,12 +47,14 @@ import { NotFoundComponent } from './not-found/not-found.component';
     AlertComponent,
     AddComponent,
     UpdateComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    HttpComponent
   ],
   imports: [
 BrowserModule,
     FormsModule,
-    ROUTING
+    ROUTING,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
