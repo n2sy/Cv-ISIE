@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Personne } from './model/personne';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -27,6 +27,11 @@ export class CvpersonneService {
   }
 
   addPersonneAPI(p) : Observable<any> {
+    // const myToken = localStorage.getItem('token');
+    // if(myToken) {
+    //   const params = new HttpParams().set('access_token', myToken);
+    //   return this.http.post(this.link, p, {params});
+    // }
     return this.http.post(this.link, p);
   }
 
@@ -47,6 +52,11 @@ export class CvpersonneService {
   }
 
   updatePersonneAPI(p) : Observable<any> {
+    // const myToken = localStorage.getItem('token');
+    // if(myToken) {
+    //   const params = new HttpParams().set('access_token', myToken);
+    //   return this.http.put(this.link, p, {params});
+    // }
     return this.http.put(this.link, p)
   }
 
@@ -56,6 +66,11 @@ export class CvpersonneService {
   }
 
   deletePersonneAPI(id) : Observable<any> {
+    // const myToken = localStorage.getItem('token');
+    // if(myToken) {
+    //   const params = new HttpParams().set('access_token', myToken);
+    //   return this.http.delete(`${this.link}/${id}`, {params});
+    // }
     return this.http.delete(`${this.link}/${id}`);
   }
 

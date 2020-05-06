@@ -25,6 +25,7 @@ import { UpdateComponent } from './update/update.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpComponent } from './http/http.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginInterceptorProvider } from './login.interceptor';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,7 @@ BrowserModule,
     ROUTING,
     HttpClientModule
   ],
-  providers: [],
+  providers: [LoginInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

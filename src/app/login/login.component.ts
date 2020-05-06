@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,8 +11,9 @@ export class LoginComponent implements OnInit {
 
   erreur : boolean = false;
   msg = "Email et/ou Mot de passe invalides";
-  constructor(
-    private router: Router) { }
+  
+  constructor(private router: Router, 
+    private auth : AuthService) { }
 
   ngOnInit() {
   }
@@ -19,15 +21,26 @@ export class LoginComponent implements OnInit {
   closeAlert() {
     this.erreur = false;
   }
+
   Connect(f) {
-    if(f.value['email'] == "nidhal@gmail.com" && f.value['password'] == "azerty"){
+    this.auth.seConnecter(f.value).subscribe(
+      (response) => {
+        const myToken = response['id']; //récupération du token
+        localStorage.setItem('token' ,myToken);
         this.router.navigate(['cv']);
-        
-      } 
-      else{
+      },
+      (error) => {
         this.erreur = true;
         f.reset();
       }
+    )
+    // if(f.value['email'] == "nidhal@gmail.com" && f.value['password'] == "azerty"){
+    //     this.router.navigate(['cv']);
+    //   } 
+    //   else{
+    //     this.erreur = true;
+    //     f.reset();
+    //   }
     
   }
 
