@@ -26,6 +26,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpComponent } from './http/http.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginInterceptorProvider } from './login.interceptor';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { LoginInterceptorProvider } from './login.interceptor';
     AddComponent,
     UpdateComponent,
     NotFoundComponent,
-    HttpComponent
+    HttpComponent,
+    SearchComponent
   ],
   imports: [
 BrowserModule,
@@ -57,7 +59,7 @@ BrowserModule,
     ROUTING,
     HttpClientModule
   ],
-  providers: [LoginInterceptorProvider],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

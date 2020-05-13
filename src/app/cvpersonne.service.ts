@@ -41,6 +41,14 @@ export class CvpersonneService {
     console.log(this.listePersonne);
   }
 
+  getListPersonsByName(chaine) : Observable<Personne[]> {
+    const filterValue = `{"where":{"nom":{"like":"%${chaine}%"}}}`;
+    console.log('....' + filterValue);
+    
+    const p = new HttpParams().set('filter', filterValue);
+    return this.http.get<Personne[]>(this.link, {params : p})
+
+  }
 
   getPersonneByIdAPI(id) : Observable<Personne> {
     return this.http.get<Personne>(`${this.link}/${id}`);  

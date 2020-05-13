@@ -23,7 +23,7 @@ const routes : Routes = [
     {path:'color', component:CouleurComponent},
     {path:'word', component:MiniWordComponent},
     {path:'child', component:ChildComponent},
-    {path:'login', component:LoginComponent, canActivate: [LogoutGuard]},
+    {path:'login', component:LoginComponent, canActivate:[LogoutGuard], canDeactivate: [LoginGuard]},
     {path: 'not-found', component: NotFoundComponent},
     {path: '**', redirectTo: 'not-found'}
 
